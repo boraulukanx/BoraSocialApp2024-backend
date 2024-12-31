@@ -23,6 +23,25 @@ app.use(bodyParser.json()); // Parses JSON requests
 
 dotenv.config();
 
+// CORS configuration
+const allowedOrigins = [
+  "https://borasocialapp-frontend.onrender.com", // Deployed frontend URL
+  "http://localhost:3000", // Local development
+];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // Allows cookies
+  })
+);
+
 //SOCKET IO
 const http = require("http");
 const socketIo = require("socket.io");

@@ -25,7 +25,7 @@ dotenv.config();
 
 // CORS configuration
 const allowedOrigins = [
-  "https://borasocialapp-frontend.onrender.com", // Deployed frontend URL
+  "https://borasocialapp2024-frontend.onrender.com", // Deployed frontend URL
   "http://localhost:3000", // Local development
 ];
 app.use(
